@@ -44,3 +44,163 @@ for j = 1:length(decodedTexts)
     fprintf(fileID, '%s\n', decodedTexts(j));
 end
 fclose(fileID);
+
+%--------------------------------------------------------------------------
+% 打开文件
+fid = fopen('decodedTexts.txt', 'r');
+
+% 初始化一个空的字符串数组来存储文件内容
+content = [];
+
+% 逐行读取文件
+while ~feof(fid)
+    % 读取一行
+    line = fgetl(fid);
+    
+    % 将这一行中的'. '替换为'. \n'
+    line = strrep(line, '. ', '. \n');
+    
+    % 将这一行添加到文件内容数组中
+    content = [content, line];
+end
+
+% 关闭文件
+fclose(fid);
+
+% 将文件内容数组转换为字符串
+content = char(content);
+
+
+% 步骤1: 打开并读取原始文件
+filename = 'decodedTexts.txt';
+fileID = fopen(filename, 'r');
+if fileID == -1
+    error('文件无法打开');
+end
+% 读取文件内容到一个字符串中
+fileContent = fread(fileID, '*char')';
+fclose(fileID);
+
+% 步骤2: 按句点分割文本到一个单元数组中
+sentences = strsplit(fileContent, '.');
+
+% 步骤3: 将每个句子写入新文件的一行中，忽略空句子
+newFilename = 'reformattedTexts.txt';
+newFileID = fopen(newFilename, 'w');
+if newFileID == -1
+    error('新文件无法创建');
+end
+
+for i = 1:length(sentences)
+    trimmedSentence = strtrim(sentences{i}); % 去除句子两端的空白字符
+    if ~isempty(trimmedSentence)
+        if i < length(sentences)
+            % 对于非最后一个句子，添加标点和换行符
+            fprintf(newFileID, '%s.\n', trimmedSentence);
+        else
+            % 对于最后一个句子，仅添加标点，不添加换行符
+            fprintf(newFileID, trimmedSentence);
+        end
+    end
+end
+
+fclose(newFileID);
+
+
+
+% 步骤1: 打开并读取原始文件
+filename = 'reformattedTexts.txt';
+fileID = fopen(filename, 'r');
+if fileID == -1
+    error('文件无法打开');
+end
+% 读取文件内容到一个字符串中
+fileContent = fread(fileID, '*char')';
+fclose(fileID);
+
+% 步骤2: 按句点分割文本到一个单元数组中
+sentences = strsplit(fileContent, '?');
+
+% 步骤3: 将每个句子写入新文件的一行中，忽略空句子
+newFilename = '2.txt';
+newFileID = fopen(newFilename, 'w');
+if newFileID == -1
+    error('新文件无法创建');
+end
+
+for i = 1:length(sentences)
+    trimmedSentence = strtrim(sentences{i}); % 去除句子两端的空白字符
+    if ~isempty(trimmedSentence)
+        if i < length(sentences)
+            % 对于非最后一个句子，添加标点和换行符
+            fprintf(newFileID, '%s?\n', trimmedSentence);
+        else
+            % 对于最后一个句子，仅添加标点，不添加换行符
+            fprintf(newFileID, trimmedSentence);
+        end
+    end
+end
+
+fclose(newFileID);
+
+
+% 步骤1: 打开并读取原始文件
+filename = '2.txt';
+fileID = fopen(filename, 'r');
+if fileID == -1
+    error('文件无法打开');
+end
+% 读取文件内容到一个字符串中
+fileContent = fread(fileID, '*char')';
+fclose(fileID);
+
+% 步骤2: 按句点分割文本到一个单元数组中
+sentences = strsplit(fileContent, '!');
+
+% 步骤3: 将每个句子写入新文件的一行中，忽略空句子
+newFilename = '3.txt';
+newFileID = fopen(newFilename, 'w');
+if newFileID == -1
+    error('新文件无法创建');
+end
+
+for i = 1:length(sentences)
+    trimmedSentence = strtrim(sentences{i}); % 去除句子两端的空白字符
+    if ~isempty(trimmedSentence)
+        if i < length(sentences)
+            % 对于非最后一个句子，添加标点和换行符
+            fprintf(newFileID, '%s!\n', trimmedSentence);
+        else
+            % 对于最后一个句子，仅添加标点，不添加换行符
+            fprintf(newFileID, trimmedSentence);
+        end
+    end
+end
+
+fclose(newFileID);
+
+% 定义文件名
+filename = '2.txt';
+
+% 检查文件是否存在
+if exist(filename, 'file')
+    % 如果文件存在，则删除文件
+    delete(filename);
+    disp(['文件 ', filename, ' 已被删除。']);
+else
+    % 如果文件不存在，显示消息
+    disp(['文件 ', filename, ' 不存在，无法删除。']);
+end
+
+% 定义文件名
+filename = 'reformattedTexts.txt';
+
+% 检查文件是否存在
+if exist(filename, 'file')
+    % 如果文件存在，则删除文件
+    delete(filename);
+    disp(['文件 ', filename, ' 已被删除。']);
+else
+    % 如果文件不存在，显示消息
+    disp(['文件 ', filename, ' 不存在，无法删除。']);
+end
