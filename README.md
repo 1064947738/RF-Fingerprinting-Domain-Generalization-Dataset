@@ -49,9 +49,9 @@ In the location dataset, the data collection lasted about 1 hour for each device
 
 Here is the structure of each packet
 
-| Short Training Field| Long Training Field  | Signal Field  | MAC Header  | Frame Control  | Duration     | Address 1      | Address 2      | Address 3      | Sequence Control  | Frame Body    | Date         | Temperature   | App_label    | Distance    | Position    | Frame Check Sequence |
-|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:------------:|:--------------:|:--------------:|:--------------:|:------------------:|:-------------:|:------------:|:-------------:|:------------:|:-----------:|:-----------:|:---------------------:|
-| 20 Byte         | 20 Byte         | 6 Byte         | 30 Byte         | 2 Byte         | 2 Byte       | 6 Byte         | 6 Byte         | 6 Byte         | 2 Byte             | Variable      | "24_xx_xx"   | 'xx'          | 'x'          | 'xm'        | 'string'    | 4 Byte                |
+| Reserved Bits| Short Training Field| Long Training Field  | Signal Field  | MAC Header  | Frame Control  | Duration     | Address 1      | Address 2      | Address 3      | Sequence Control  | Frame Body    | Date         | Temperature   | App_label    | Distance    | Position    | Frame Check Sequence |Reserved Bits|
+|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:------------:|:--------------:|:--------------:|:--------------:|:------------------:|:-------------:|:------------:|:-------------:|:------------:|:-----------:|:-----------:|:---------------------:|:---------------------:|
+| 50 bits         | 160 bits         | 160 bits         | 48 bits         | 240 bits         | 16 bits         | 16 bits       | 48 bits         | 48 bits         | 48 bits         | 16 bits             | Variable      | "24_xx_xx"   | 'xx'          | 'x'          | 'xm'        | 'string'    | 32 bits                |40 bits         |
 
 
 where app is labeled 0, 1, 2, 3, 4; position is labeled 'LOS_fixed', 'LOS_move_slow', 'LOS_move_ fast', 'NLOS_fixed'
