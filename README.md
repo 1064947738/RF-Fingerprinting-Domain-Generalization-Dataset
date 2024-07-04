@@ -1,12 +1,12 @@
 Readme
 ======
-This project builds a radio frequency fingerprint recognition system based on WiFi signals. It also provides a dataset containing WiFi signals collected from different batches (dates) of 10 mobile devices. The detailed collection settings of different sub-datasets can be found in the chapter Dataset Introduction.
+In this project, an RF fingerprint identification system based on WiFi signals is constructed. A dataset containing WiFi signals collected from different batches (dates) of 10 cellular devices is also provided. Detailed collection setups for different sub-datasets can be found in the chapter dataset descriptions.
 
 Dataset Introduction
 ======
 Experimental Devices
 ------
-Ten commonly used mobile phones were included in the experiment. The following table provides more details about them.
+Ten commonly used cell phones were included in the experiment. The following table provides more details about them.
 | Device Index  | Device Model | Device Model | 
 | ------------- | ------------- |------------- |
 |0	|V2118A|	3.2GHz 骁龙 870 八核|
@@ -20,15 +20,16 @@ Ten commonly used mobile phones were included in the experiment. The following t
 |8	|HUAWEI MatePad	|HUAWEI Kirin 820|
 |9	|Xiaomi 14	|第三代骁龙®8移动平台|
 
-All device messages are captured by USRP N210 software defined radio (SDR). We use the USRP Radio Communication Toolbox support package of MATLAB to control the USRP and obtain IQ samples from it. The parameters include 20MS/s, 20MHz bandwidth, and 2.462GHz carrier frequency.
+All device messages are captured by the USRP N210 software-defined radio (SDR), and we use the USRP Radio Communications Toolkit support package for matlab to control the USRP and obtain IQ samples from it, with parameters including 20 MS/s, a bandwidth of 20 MHz, and a carrier frequency of 2.462 GHz.
 
 Experimental Environment
 ------
-The experimental environment includes a laboratory and a utility room, both of which are 8 meters by 7.5 meters in size. The laboratory includes multiple desktop computers, multiple tables with partitions, chairs, etc., as well as some sundries; the utility room contains two round tables, two chairs, four hosts, a server, a large monitor, and a lot of sundries. The environment is crowded, and the doors are closed during all experiments.
+The experimental environment consisted of a laboratory and a utility room, both measuring 8 m x 7.5 m. The laboratory consisted of a number of desktop computers, tables with partitions, chairs, etc., and a portion of miscellaneous items; the utility room contained two round tables, two chairs, four mainframes, a server, a large monitor, and a lot of miscellaneous items. The environment was crowded, and in addition, the door was closed during all experiments.
+![image](https://github.com/1064947738/ASCII-Encoding-and-decoding/assets/163235170/bded9ba3-0057-4172-9419-84b9d6e6858d)
 
 Dataset Structure
 ------
-The dataset consists of n sub-datasets, each of which is a file. Each file contains multiple signals and corresponding device labels as well as labels for other situations. The following is an introduction to our dataset:
+The dataset consists of n sub-datasets, each sub-dataset is a file, and each file contains multiple signals and the corresponding device labels as well as labels for other situations. Below is a description of our dataset:
 
 Root directory  
 ├── temperature  
@@ -39,9 +40,18 @@ Root directory
 ├── scene  
 │  └── 24_05_21  
 └── location  
-&nbsp;&nbsp;&nbsp;└── 24_05_10  
-In each sub-dataset of temperature, data collection for each device lasts about 1.5 hours, and temperature data is collected when using five different apps. Each device needs to collect 200 data packets as training sets and 40 data packets as test sets on each app.
+&nbsp;&nbsp;&nbsp;&nbsp;└── 24_05_10  
+In each sub-dataset of temperature, data collection lasted about 1.5 hours per device, collecting temperature data while using five different apps. Each device needs to collect 200 data packets on each app as a training set and 40 data packets as a test set.
 
-In the scene dataset, data collection time for each device is about 3 hours. Data packets are collected in the visible case, fixed distance and app, static, slow moving, and fast moving conditions. 500 data packets are collected in each case as training sets and 100 data packets are collected as test sets; in the invisible case, fixed distance and app, static data packets are collected, of which 500 data packets are used as training sets and 100 data packets are used as test sets.
+In the scene dataset, the data collection time for each device was about 3 hours, and the data packets were collected in the visible case, at a fixed distance with the app, in the stationary, slow-moving, and fast-moving cases, with 500 packets collected as a training set and 100 packets collected as a test set for each case; and in the invisible case, at a fixed distance with the app, with the stationary state packets, of which 500 packets are used as training set and 100 packets are used as test set.
 
-In the location dataset, data collection for each device lasts about 1 hour. When using the same app, data packets are collected at distances of 0m, 1m, and 2m, respectively. Each device collects 1000 data packets as training sets and 200 data packets as test sets.
+In the location dataset, the data collection lasted about 1 hour for each device, and 1000 packets were collected as a training set and 200 packets as a test set for each device when using the same app at distances of 0m, 1m, and 2m, respectively.
+
+Here is the structure of each packet
+
+| Frame Control  | Duration     | Address 1      | Address 2      | Address 3      | Sequence Control  | Frame Body    | Date         | Temperature   | App_label    | Distance    | Position    | Frame Check Sequence |
+|:--------------:|:------------:|:--------------:|:--------------:|:--------------:|:------------------:|:-------------:|:------------:|:-------------:|:------------:|:-----------:|:-----------:|:---------------------:|
+| 2 Byte         | 2 Byte       | 6 Byte         | 6 Byte         | 6 Byte         | 2 Byte             | Variable      | "24_xx_xx"   | 'xx'          | 'x'          | 'xm'        | 'string'    | 4 Byte                |
+
+
+where app is labeled 0, 1, 2, 3, 4; position is labeled 'LOS_fixed', 'LOS_move_slow', 'LOS_move_ fast', 'NLOS_fixed'
