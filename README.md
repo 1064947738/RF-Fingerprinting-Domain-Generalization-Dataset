@@ -49,9 +49,9 @@ In the location dataset, the data collection lasted about 1 hour for each device
 
 Here is the structure of each packet
 
-| Frame Control  | Duration     | Address 1      | Address 2      | Address 3      | Sequence Control  | Frame Body    | Date         | Temperature   | App_label    | Distance    | Position    | Frame Check Sequence |
-|:--------------:|:------------:|:--------------:|:--------------:|:--------------:|:------------------:|:-------------:|:------------:|:-------------:|:------------:|:-----------:|:-----------:|:---------------------:|
-| 2 Byte         | 2 Byte       | 6 Byte         | 6 Byte         | 6 Byte         | 2 Byte             | Variable      | "24_xx_xx"   | 'xx'          | 'x'          | 'xm'        | 'string'    | 4 Byte                |
+| Short Training Field| Long Training Field  | Signal Field  | MAC Header  | Frame Control  | Duration     | Address 1      | Address 2      | Address 3      | Sequence Control  | Frame Body    | Date         | Temperature   | App_label    | Distance    | Position    | Frame Check Sequence |
+|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:------------:|:--------------:|:--------------:|:--------------:|:------------------:|:-------------:|:------------:|:-------------:|:------------:|:-----------:|:-----------:|:---------------------:|
+| 20 Byte         | 20 Byte         | 6 Byte         | 30 Byte         | 2 Byte         | 2 Byte       | 6 Byte         | 6 Byte         | 6 Byte         | 2 Byte             | Variable      | "24_xx_xx"   | 'xx'          | 'x'          | 'xm'        | 'string'    | 4 Byte                |
 
 
 where app is labeled 0, 1, 2, 3, 4; position is labeled 'LOS_fixed', 'LOS_move_slow', 'LOS_move_ fast', 'NLOS_fixed'
