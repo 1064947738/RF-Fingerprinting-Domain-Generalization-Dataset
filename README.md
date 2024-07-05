@@ -25,7 +25,8 @@ All device messages are captured by the USRP N210 software-defined radio (SDR), 
 Experimental Environment
 ------
 The experimental environment consisted of a laboratory and a utility room, both measuring 8 m x 7.5 m. The laboratory consisted of a number of desktop computers, tables with partitions, chairs, etc., and a portion of miscellaneous items; the utility room contained two round tables, two chairs, four mainframes, a server, a large monitor, and a lot of miscellaneous items. The environment was crowded, and in addition, the door was closed during all experiments.
-![image](https://github.com/1064947738/ASCII-Encoding-and-decoding/assets/163235170/bded9ba3-0057-4172-9419-84b9d6e6858d)
+![image](https://github.com/1064947738/ASCII-Encoding-and-decoding/assets/163235170/f1deff5c-3d03-4231-87c1-dadb13ff0116)
+
 
 Dataset Structure
 ------
@@ -41,6 +42,9 @@ Root directory
 │  └── 24_05_21  
 └── location  
 &nbsp;&nbsp;&nbsp;&nbsp;└── 24_05_10  
+
+The Wi-Fi and USRP receivers were placed at the Tx and Rx locations, respectively, and the receivers were kept stationary at a fixed location during each data acquisition. The devices, on the other hand, are placed at 0m, 1m, and 2m from Rx depending on different experimental requirements, and the placement points are on the A,B,C,D positions. Since there are other clutter items between the device and the receiver in all cases except the 0m case where it can be considered as having a direct path of realization, especially the device placed in the utility room, there is no direct line of sight path between the device under test and the receiver since the doors are closed as well as there is a wall.
+
 In each sub-dataset of temperature, data collection lasted about 1.5 hours per device, collecting temperature data while using five different apps. Each device needs to collect 200 data packets on each app as a training set and 40 data packets as a test set.
 
 In the scene dataset, the data collection time for each device was about 3 hours, and the data packets were collected in the visible case, at a fixed distance with the app, in the stationary, slow-moving, and fast-moving cases, with 500 packets collected as a training set and 100 packets collected as a test set for each case; and in the invisible case, at a fixed distance with the app, with the stationary state packets, of which 500 packets are used as training set and 100 packets are used as test set.
