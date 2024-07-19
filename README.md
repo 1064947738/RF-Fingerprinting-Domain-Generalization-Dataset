@@ -13,16 +13,16 @@ Experimental Devices
 Ten commonly used cell phones were included in the experiment. The following table provides more details about them.
 | Device Index  | Device Model | Device Model | 
 | ------------- | ------------- |------------- |
-|0	|V2118A|	3.2GHz 骁龙 870 八核|
-|1	|PHK110	|第一代骁龙®8+移动平台|
-|2	|PGT-AN10	|第二代骁龙8移动平台|
-|3	|Redmi K30S Ultra	|高通骁龙865|
-|4	|Redmi Note 11 5G	|天玑810|
-|5	|Xiaomi 12	|全新一代骁龙8|
-|6	|PGBM10	|天玑 1300 八核|
-|7	|Xiaomi 12	|全新一代骁龙8|
+|0	|V2118A|	3.2GHz Qualcomm Snapdragon 870 Eight-core|
+|1	|PHK110	|Qualcomm Snapdragon S1®8+Mobile Platform |
+|2	|PGT-AN10	|Qualcomm Snapdragon S2®8 Mobile Platform|
+|3	|Redmi K30S Ultra	|Qualcomm Snapdragon 865 |
+|4	|Redmi Note 11 5G	|Mediarek Dimensity 810 |
+|5	|Xiaomi 12	|Qualcomm Snapdragon 8 Gen 1|
+|6	|PGBM10	|MediaTek Dimensity 1300 Eight-core |
+|7	|Xiaomi 12	|Qualcomm Snapdragon 8 Gen 1|
 |8	|HUAWEI MatePad	|HUAWEI Kirin 820|
-|9	|Xiaomi 14	|第三代骁龙®8移动平台|
+|9	|Xiaomi 14	|Qualcomm Snapdragon s3®8 Mobile Platformhline|
 
 All device messages are captured by the USRP N210 software-defined radio (SDR), and we use the USRP Radio Communications Toolkit support package for matlab to control the USRP and obtain IQ samples from it, with parameters including 20 MS/s, a bandwidth of 20 MHz, and a carrier frequency of 2.462 GHz.
 
