@@ -49,11 +49,13 @@ Root directory
 
 The Wi-Fi and USRP receivers were placed at the Tx and Rx locations, respectively, and the receivers were kept stationary at a fixed location during each data acquisition. The devices, on the other hand, are placed at 0m, 1m, and 2m from Rx depending on different experimental requirements, and the placement points are on the A,B,C,D positions. Since there are other clutter items between the device and the receiver in all cases except the 0m case where it can be considered as having a direct path of realization, especially the device placed in the utility room, there is no direct line of sight path between the device under test and the receiver since the doors are closed as well as there is a wall.
 
-In each sub-dataset of temperature, data collection lasted about 1.5 hours per device, collecting temperature data while using five different apps. Each device needs to collect 200 data packets on each app as a training set and 40 data packets as a test set.
+In each temperature sub-dataset, the data collection time for each device was approximately 1.5 hours to collect temperature data while using five different applications. Each device was required to collect 200 data packets per application for the training set and 40 data packets for the test set. The main app_label is '0','1','2','3','4'.
 
-In the scene dataset, the data collection time for each device was about 3 hours, and the data packets were collected in the visible case, at a fixed distance with the app, in the stationary, slow-moving, and fast-moving cases, with 500 packets collected as a training set and 100 packets collected as a test set for each case; and in the invisible case, at a fixed distance with the app, with the stationary state packets, of which 500 packets are used as training set and 100 packets are used as test set.
+In the scenario dataset, the data collection time for each device was approximately 3 hours, with 500 packets collected as a training set and 100 packets as a test set for each of the stationary, slow-moving, and fast-moving scenarios at a fixed distance from the applications in the visible case, and 500 packets collected as a training set and 100 packets as a test set for each of the stationary scenarios at a fixed distance from the applications in the non-visible case, with 500 packets as training set and 100 packets as test set. The main position labels are 'L0S fixed', 'L0S move slow', 'L0S move fast', 'NLOS fixed'.
 
-In the location dataset, the data collection lasted about 1 hour for each device, and 1000 packets were collected as a training set and 200 packets as a test set for each device when using the same app at distances of 0m, 1m, and 2m, respectively.
+In the location dataset, the data collection time for each device is about 1 hour, and 1000 packets are collected as training set and 200 packets as test set for each device when the same application is used at a distance of 0 m, 1 m and 2 m, respectively. The main distance labels are '0m' , '1m' , '2m'.
+
+The rest of the temperature labels and date labels are specific to the situation.
 
 Here is the structure of each packet
 
