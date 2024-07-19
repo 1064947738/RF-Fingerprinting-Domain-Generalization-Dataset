@@ -4,6 +4,10 @@ In this project, an RF fingerprint identification system based on WiFi signals i
 
 Dataset Introduction
 ======
+
+The dataset can be found under this link  
+https://drive.google.com/drive/folders/1dWg8Fui_0I93p6BI4VWaICMuMGoeuYqP?usp=sharing
+
 Experimental Devices
 ------
 Ten commonly used cell phones were included in the experiment. The following table provides more details about them.
