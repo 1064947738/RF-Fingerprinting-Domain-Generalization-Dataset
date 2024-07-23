@@ -39,6 +39,14 @@ The dataset consists of n sub-datasets, each sub-dataset is a file, and each fil
 Root directory  
 ├── temperature  
 │  ├── 2024_04_25-26  
+│  │  ├──train.pkt  
+│  │  │  ├──pkt_data1  
+│  │  │  ├──pkt_data2  
+│  │  │  └──...  
+│  │  ├──test.pkt  
+│  │  │  ├──pkt_data1  
+│  │  │  ├──pkt_data2  
+│  │  │  └──...  
 │  ├── 2024_04_28-30  
 │  └── 2024_05_06-07  
 │  └── ...  
@@ -46,6 +54,10 @@ Root directory
 │  └── 24_05_21  
 └── location  
 &nbsp;&nbsp;&nbsp;&nbsp;└── 24_05_10  
+
+The pkt_data packet attributes are as follows
+
+pkt_data.data-pktlen-pktType-addr2-cfo-date-temperature-app_label-distance-position-dev_label
 
 The Wi-Fi and USRP receivers were placed at the Tx and Rx locations, respectively, and the receivers were kept stationary at a fixed location during each data acquisition. The devices, on the other hand, are placed at 0m, 1m, and 2m from Rx depending on different experimental requirements, and the placement points are on the A,B,C,D positions. Since there are other clutter items between the device and the receiver in all cases except the 0m case where it can be considered as having a direct path of realization, especially the device placed in the utility room, there is no direct line of sight path between the device under test and the receiver since the doors are closed as well as there is a wall.
 
@@ -56,12 +68,3 @@ In the scenario dataset, the data collection time for each device was approximat
 In the location dataset, the data collection time for each device is about 1 hour, and 1000 packets are collected as training set and 200 packets as test set for each device when the same application is used at a distance of 0 m, 1 m and 2 m, respectively. The main distance labels are '0m' , '1m' , '2m'.
 
 The rest of the temperature labels and date labels are specific to the situation.
-
-Here is the structure of each packet
-
-| Reserved Bits| Short Training Field| Long Training Field  | Signal Field  | MAC Header  | Frame Control  | Duration     | Address 1      | Address 2      | Address 3      | Sequence Control  | Frame Body    | Date         | Temperature   | App_label    | Distance    | Position    | Frame Check Sequence |Reserved Bits|
-|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:------------:|:--------------:|:--------------:|:--------------:|:------------------:|:-------------:|:------------:|:-------------:|:------------:|:-----------:|:-----------:|:---------------------:|:---------------------:|
-| 50 bits         | 160 bits         | 160 bits         | 48 bits         | 240 bits         | 16 bits         | 16 bits       | 48 bits         | 48 bits         | 48 bits         | 16 bits             | Variable      | "24_xx_xx"   | 'xx'          | 'x'          | 'xm'        | 'string'    | 32 bits                |40 bits         |
-
-
-where app is labeled 0, 1, 2, 3, 4; position is labeled 'LOS_fixed', 'LOS_move_slow', 'LOS_move_ fast', 'NLOS_fixed'
